@@ -1,0 +1,31 @@
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# Package Files #
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+*.jar
+
+# git
+#.gitignore
+
+# IDE
+.idea
+.classpath
+.project
+*.iml
+.settings/
+
+# project directory
+target/
+logs/
+
+# tmp file
+.tmp

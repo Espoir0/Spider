@@ -1,0 +1,13 @@
+spring:
+  datasource:
+      #?characterEncoding=utf-8，目的是避免调用JPA的方法存入数据库中的数据中文乱码
+    url: jdbc:mysql://59.110.243.60:33306/arryn_aa?createDatabaseIfNotExist=true&serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=true
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    show-sql: true      #控制台显示sql
+    #hibernate可以根据Entity属性在数据库中自动创建对应的表
+    hibernate:
+      dialect: org.hibernate.dialect.MySQL5Dialect
+      ddl-auto: update   #update: 如果修改了Entity，重启项目，表结构会自动更新

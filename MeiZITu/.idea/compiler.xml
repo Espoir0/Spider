@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="WebMagic" />
+        <module name="webmagic-core" />
+        <module name="Spider" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Spider" target="1.8" />
+      <module name="WebMagic" target="1.5" />
+      <module name="webmagic-core" target="1.6" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

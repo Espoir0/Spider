@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn" monitorInterval="30" strict="true"
+               schema="Log4J-V2.2.xsd">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout
+                    pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"/>
+        </Console>
+
+        <!--fileName的OracleLogToFBPlugin-main最好为启动类-->
+        <RollingFile name="RollingFile" fileName="logs/wallPaper.log"
+                     filePattern="logs/ZhiHu-wallpaper-%d{yyyy-MM-dd}-%i.log.gz">
+            <PatternLayout
+                    pattern="%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"/>
+            <Policies>
+                <OnStartupTriggeringPolicy/>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="100 MB"/>
+            </Policies>
+
+            <DefaultRolloverStrategy max="20">
+                <Delete basePath="logs/">
+                    <IfFileName glob="logs/ZhiHu-wallpaper-*.log.gz"/>
+                    <IfLastModified age="7D"/>
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+    <!--root的作用是是收集所有配置的logger（additivity=true）反馈上来的信息流并且根据root中配置的appender-ref进行输出，
+    所以，如果我们logger配置了additivity=true，又配置了appender-ref，会导致日志重复。
+        注意：这里的level值对那些没有配置日志级别，而且additivity=true的logger才会有作用。
+    -->
+        <Root level="debug">
+             <AppenderRef ref="Console"/>
+             <AppenderRef ref="RollingFile"/>
+        </Root>
+    </Loggers>
+</Configuration>
